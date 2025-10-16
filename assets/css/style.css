@@ -243,7 +243,7 @@ a {
 /* ===== SKILLS ===== */
 .skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2rem;
 }
 
@@ -352,99 +352,129 @@ footer {
     font-size: 0.9rem;
 }
 
-/* == Responsive Design == */
+/* == GLOBAL RESPONSIVE DESIGN == */
 
-/* Tablet (medium screens) */
-@media (max-width: 1024px) {
-    header {
-        padding: 15px 5%;
+/* --- Base Reset for Fluid Layout --- */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Images and videos scale down automatically */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Typography adjusts slightly for smaller screens */
+@media (max-width: 1200px) {
+    body {
+        font-size: 15px;
     }
 
-    .nav-links {
+    header {
+        padding: 1rem 5%;
+    }
+
+    section {
+        padding: 4rem 8%;
+    }
+}
+
+/* ==TABLET (iPad, small laptops) == */
+@media (max-width: 1024px) {
+    nav ul {
         gap: 1.5rem;
     }
 
-    .about-section {
-        padding: 4rem 6%;
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
-    .about-content {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skills-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* == MOBILE (Phones) == */
+@media (max-width: 768px) {
+    header {
         flex-direction: column;
         text-align: center;
     }
 
-    .about-content img {
-        width: 180px;
-        margin-bottom: 1.5rem;
+    nav ul {
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 1rem;
     }
 
-    .education-section ul li,
-    .skills-grid span {
-        font-size: 1rem;
-    }
-
-    .contact-section form input,
-    .contact-section form textarea {
-        width: 90%;
-    }
-}
-
-/* Mobile (small screens) */
-@media (max-width: 768px) {
-    /* Stack image and text vertically */
     .about-container {
-        display: flex;
         flex-direction: column;
-        align-items: center !important;
-        justify-content: center !important;
-        text-align: center !important;
-        width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
-    /* Center image and add spacing */
     .about-image {
-        width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
         margin-bottom: 1.5rem;
     }
 
     .about-image img {
         width: 180px;
         height: 180px;
-        border-radius: 50%;
     }
 
-    /* Center the text container itself */
     .about-text {
-        width: 100%;
-        max-width: 95%;
-        margin: 0 auto;
-        text-align: center !important;
-    }
-
-    .about-text h2 {
+        width: 95%;
         text-align: center;
     }
 
-    /* Fix buttons on small screens */
-    .btn {
-        display: inline-block;
-        margin: 1.5rem auto 0 auto;
-    }
-
-    /* Education & skills stack naturally */
-    .education-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .skills-container {
+    .education-container,
+    .skills-container,
+    .projects-container {
         grid-template-columns: 1fr;
     }
 
-    .education-card {
-        max-width: 90%;
+    .education-card,
+    .project-card,
+    .skill-card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .btn {
+        margin: 1.2rem auto 0 auto;
     }
 }
+
+/* ==SMALL MOBILE (iPhone SE, mini phones) == */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    .about-image img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
