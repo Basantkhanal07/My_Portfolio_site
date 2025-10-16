@@ -333,32 +333,60 @@ footer {
 
 /* Mobile (small screens) */
 @media (max-width: 768px) {
+    /* Stack image and text vertically */
     .about-container {
+        display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100%;
     }
 
+    /* Center image and add spacing */
     .about-image {
+        width: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
         margin-bottom: 1.5rem;
     }
 
     .about-image img {
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
     }
 
+    /* Center the text container itself */
     .about-text {
-        max-width: 90%;
+        width: 100%;
+        max-width: 95%;
+        margin: 0 auto;
+        text-align: center !important;
     }
 
-    .education-card {
-        max-width: 100%;
+    .about-text h2 {
+        text-align: center;
+    }
+
+    /* Fix buttons on small screens */
+    .btn {
+        display: inline-block;
+        margin: 1.5rem auto 0 auto;
+    }
+
+    /* Education & skills stack naturally */
+    .education-container {
+        flex-direction: column;
+        align-items: center;
     }
 
     .skills-container {
         grid-template-columns: 1fr;
+    }
+
+    .education-card {
+        max-width: 90%;
     }
 }
